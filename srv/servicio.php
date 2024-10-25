@@ -7,27 +7,30 @@ require_once __DIR__ . "/../lib/php/selectFirst.php";
 require_once __DIR__ . "/../lib/php/ProblemDetails.php";
 require_once __DIR__ . "/../lib/php/devuelveJson.php";
 require_once __DIR__ . "/Bd.php";
-require_once __DIR__ . "/TABLA_PASATIEMPO.php";
+require_once __DIR__ . "/TABLA_SERVICIO.php";
 
+/* ded */
 ejecutaServicio(function () {
 
  $id = recuperaIdEntero("id");
 
  $modelo =
-  selectFirst(pdo: Bd::pdo(),  from: PASATIEMPO,  where: [PAS_ID => $id]);
+  selectFirst(pdo: Bd::pdo(),  from: SERVICIOS,  where: [SER_ID => $id]);
 
  if ($modelo === false) {
   $idHtml = htmlentities($id);
   throw new ProblemDetails(
    status: NOT_FOUND,
-   title: "Pasatiempo no encontrado.",
-   type: "/error/pasatiemponoencontrado.html",
-   detail: "No se encontró ningún pasatiempo con el id $idHtml.",
+   title: "Servicio no encontrado.",
+   type: "/error/servicionoencontrado.html",
+   detail: "No se encontró ningún servicio con el id $idHtml.",
   );
  }
 
  devuelveJson([
   "id" => ["value" => $id],
-  "nombre" => ["value" => $modelo[PAS_NOMBRE]],
+  "nombre" => ["value" => $modelo[SER_NOMBRE]],
+  "descripcion" => ["value" => $modelo[SER_DESCRIPCION]],
+  "tipo" => ["value" => $modelo[SER_TIPO]],
  ]);
 });
