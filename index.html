@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Acceso a la base de datos || Rodrigo</title>
     <script type="module" src="lib/js/consumeJson.js"></script>
     <script type="module" src="lib/js/muestraObjeto.js"></script>
     <script type="module" src="lib/js/muestraError.js"></script>
@@ -15,18 +15,19 @@
       crossorigin="anonymous"
     />
   </head>
-  <body onload="consumeJson('srv/pasatiempos.php')
+
+  
+
+  <body onload="consumeJson('srv/servicios.php')
   .then(respuesta => muestraObjeto(document, respuesta.body))
   .catch(muestraError)">
-    <h1>Acceso a base de datos</h1>
+  <h1> Acceso a la base de datos || tabla servicios</h1>
 
- <p><a href="agrega.html">Agregar</a></p>
+  <button type="button" class="btn btn-outline-warning"> <a href="agrega.html">Agregar</a> </button>
 
- <ul id="lista">
-  <li><progress max="100">Cargando&hellip;</progress></li>
- </ul>
-   
-
+<dl id="lista" style="text-justify: auto;">
+  <dt> <progress max="100">Cargando&hellip;</progress> </dt>
+</dl>
     <!-- script -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -15,7 +15,7 @@
 
 <body>
 
- <form onsubmit="submitForm('srv/pasatiempo-agrega.php', event)
+ <form onsubmit="submitForm('srv/servicio-agrega.php', event)
     .then(modelo => location.href = 'index.html')
     .catch(muestraError)">
 
@@ -25,8 +25,26 @@
 
   <p>
    <label>
-    Nombre *
+    Nombre 
     <input name="nombre">
+   </label>
+  </p>
+
+  <p>* Obligatorio</p>
+
+  <p>
+   <label>
+    Descripcion 
+    <input name="descripcion">
+   </label>
+  </p>
+
+  <p>* Obligatorio</p>
+
+  <p>
+   <label>
+    Tipo 
+    <input name="tipo">
    </label>
   </p>
 

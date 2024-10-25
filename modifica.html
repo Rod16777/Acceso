@@ -22,12 +22,12 @@
 </head>
 
 <body onload="if (params.size > 0) {
-   consumeJson('srv/pasatiempo.php?' + params)
+   consumeJson('srv/servicio.php?' + params)
     .then(respuesta => muestraObjeto(forma, respuesta.body))
     .catch(muestraError)
   }">
 
- <form id="forma" onsubmit="submitForm('srv/pasatiempo-modifica.php', event)
+ <form id="forma" onsubmit="submitForm('srv/servicio-modifica.php', event)
     .then(respuesta => location.href = 'index.html')
     .catch(muestraError)">
 
@@ -39,8 +39,26 @@
 
   <p>
    <label>
-    Nombre *
+    Nombre
     <input name="nombre" value="Cargando&hellip;">
+   </label>
+  </p>
+
+  <p>* Obligatorio</p>
+
+  <p>
+   <label>
+   Descripcion
+    <input name="descripcion" value="Cargando&hellip;">
+   </label>
+  </p>
+
+  <p>* Obligatorio</p>
+
+  <p>
+   <label>
+    Tipo
+    <input name="tipo" value="Cargando&hellip;">
    </label>
   </p>
 
@@ -52,7 +70,7 @@
 
    <button type="button" onclick="
      if (params.size > 0 && confirm('Confirma la eliminación')) {
-      consumeJson('srv/pasatiempo-elimina.php?' + params)
+      consumeJson('srv/servicio-elimina.php?' + params)
        .then(() => location.href = 'index.html')
        .catch(muestraError)
      }">
